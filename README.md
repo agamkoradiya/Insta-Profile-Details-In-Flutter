@@ -1,6 +1,10 @@
-# insta_profile_flutter_app
+# Insta Profile Details Finder
+# Demo
 
-Insta Profile Details Flutter application.
+![2020_08_30_21_29_19](https://user-images.githubusercontent.com/54389203/91664214-abdcb500-eae5-11ea-9a5b-b5f52b094ea1.gif)
+
+
+Using this app you can easily get all info about any insta user.
 
 ## Getting Started
 
