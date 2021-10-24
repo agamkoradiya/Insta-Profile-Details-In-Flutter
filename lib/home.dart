@@ -70,6 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
             print(_posts);
 
             dpUrl = response.data["graphql"]["user"]["profile_pic_url_hd"];
+
             posts = _posts;
             followers = _followers;
             following = _following;
@@ -77,6 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
             isVerified = _isVerified;
             fullName = _fullName;
             biography = _biography;
+            user=userName;
             externalUrl = _externalUrl;
             setState(() {
               isSearching=false;
