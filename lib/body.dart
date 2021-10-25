@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:linkable/linkable.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'main.dart';
 
@@ -18,14 +19,17 @@ class _BodyState extends State<Body> {
         child: isVisibleAllElement
             ? ListView(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(80, 10, 80, 30),
-                    child: ClipOval(
-                      child: Image(
-                        fit: BoxFit.fill,
-                        image: NetworkImage(dpUrl),
+                  InkWell(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(80, 10, 80, 30),
+                      child: ClipOval(
+                        child: Image(
+                          fit: BoxFit.fill,
+                          image: NetworkImage(dpUrl),
+                        ),
                       ),
                     ),
+                    onTap: _launchURL,
                   ),
                   Row(
                     children: [
@@ -112,11 +116,23 @@ class _BodyState extends State<Body> {
                       padding: EdgeInsets.fromLTRB(20, 10, 20, 5),
                       child: Align(
                           alignment: Alignment.centerLeft,
-                          child: Linkable(text: "$externalUrl")))
+                          child: Linkable(text: "$externalUrl"))),
+
+
                 ],
               )
             : Text(""),
       ),
     );
+
+
+  }
+  _launchURL() async {
+    String url = 'https://www.instagram.com/$user/';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }

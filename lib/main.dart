@@ -12,6 +12,7 @@ bool isVerified = false;
 String fullName = "";
 String biography = "";
 String externalUrl = "";
+String user="";
 
 void main() {
   debugPrint("main");
